@@ -88,7 +88,7 @@
                         </path>
                     </svg>
                     <span id="cart-count" class="absolute -top-1 -right-2 bg-red-500 text-white text-[10px] px-[5px] rounded-full">
-                        0
+                        
                     </span>
                 </a>
             </div>
@@ -96,7 +96,7 @@
 
         <!-- mobile section navition -->
         <div class="mobile-section flex justify-left items-center bg-pry-color px-5 lg:hidden">
-            <ul class="text-text-color flex gap-5 text-sm h-8 items-center">
+            <ul class="text-text-color flex gap-5 text-[13px] h-8 items-center">
                 <li><a href="" class="font-semibold bg-black py-2 px-4 text-white">HOME</a></li>
                 <li><a href="" class="font-semibold">COLLECTIONS</a></li>
                 <li><a href="" class="font-semibold">BRIDALS</a></li>
@@ -124,19 +124,19 @@
     <!-- new collection section -->
 
     <section>
-        <h1 class="mx-[1em] my-5">TOP RATING PRODUCT</h1>
+        <h1 class="mx-[1em] mt-10">TOP RATING PRODUCT</h1>
 
-        <div class="container flex gap-3 w-full p-[1em]">
-            <div class="card w-1/2 bg-gray-100 rounded-lg">
+        <div class="container flex gap-4 w-full p-[1em] flex-wrap mt-2">
+            <div class="card w-[44vmin] bg-gray-100 rounded-lg">
                 <img src="fashion-image/a.png" alt="" class="w-full h-[25vh] object-cover">
                 
                 <!-- the price, label add to cart -->
-                <div class="text bg-white p-3 rounded-b-lg">
+                <div class="text bg-white py-3 rounded-b-lg">
                     <p class="text-sm">Plain white rose dress</p>
                     <p class="font-semibold">$23.00</p>
 
                     <div class="flex justify-between items-center mt-2">
-                        <button class="add-to-cart border-2 border-black text-black px-5 py-2 rounded">
+                        <button class="add-to-cart border-2 border-black text-black px-4 py-1 rounded">
                             Add to Cart
                         </button>
 
@@ -148,17 +148,17 @@
                         </button>
                     </div>
                 </div>
-            </div>
-            <div class="card w-1/2 bg-gray-100 rounded-lg">
+            </div>                
+            <div class="card w-[44vmin] bg-gray-100 rounded-lg">
                 <img src="fashion-image/a.png" alt="" class="w-full h-[25vh] object-cover">
                 
                 <!-- the price, label add to cart -->
-                <div class="text bg-white p-3 rounded-b-lg">
+                <div class="text bg-white py-3 rounded-b-lg">
                     <p class="text-sm">Plain white rose dress</p>
                     <p class="font-semibold">$23.00</p>
 
                     <div class="flex justify-between items-center mt-2">
-                        <button class="add-to-cart border-2 border-black text-black px-5 py-2 rounded">
+                        <button class="add-to-cart border-2 border-black text-black px-4 py-1 rounded">
                             Add to Cart
                         </button>
 
@@ -170,9 +170,27 @@
                         </button>
                     </div>
                 </div>
-                
+            </div>                
+                          
         </div>
     </section>
+
+    <section>
+        <div class="newsletter flex flex-col items-center justify-center text-center bg-gray-100 p-5 mt-10">
+            <h1 class="font-semibold text-[1.5em]">Subscribe to our Email</h1>
+            <!-- <p>Subscribe to our newsletter to recieve update of our latest fashion style</p> -->
+                <form id="newsletter-form">
+                    <input type="email" id="email" placeholder="Enter your email" class="border-2 border-gray-400 p-2 rounded w-full max-w-md mt-3" requid>
+                    <button type="submit" class="bg-black text-pry-color px-4 py-2 rounded mt-3">Subscribe</button>
+                </form>
+             <p id="response-message" class="text-sm font-bold text-green-600 hidden">Thanks for subscribing!</p>
+        </div>
+    </section>
+
+    
+    <footer>
+       
+    </footer>
 
     <script src="index.js"></script>
 </body>
