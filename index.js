@@ -30,7 +30,7 @@
 // }
 // });
 
-
+// like button functionality
 document.addEventListener('DOMContentLoaded', () => {
   const likeButtons = document.querySelectorAll('.like-button');
 
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-//newsletter js code
+//newsletter submission js code
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('newsletter-form');
   const emailInput = document.getElementById('email');
@@ -84,11 +84,13 @@ document.addEventListener('DOMContentLoaded', () => {
       responseMessage.classList.remove('text-green-600');
       responseMessage.classList.add('text-red-600');
       responseMessage.classList.remove('hidden');
+      emailInput.classList.remove('border-gray-400');
+      emailInput.classList.add('border-red-500');
 
       // Hide error after 3 seconds
       setTimeout(() => {
         responseMessage.classList.add('hidden');
-      }, 6000);
+      }, 12000);
 
       return;
     }
@@ -100,11 +102,13 @@ document.addEventListener('DOMContentLoaded', () => {
     responseMessage.classList.remove('text-red-600');
     responseMessage.classList.add('text-green-600');
     responseMessage.classList.remove('hidden');
+    emailInput.classList.remove('border-red-500');
+    emailInput.classList.add('border-gray-400');
 
     // Hide success after 3 seconds
     setTimeout(() => {
       responseMessage.classList.add('hidden');
-    }, 4000);
+    }, 8000);
 
     form.reset();
   });
