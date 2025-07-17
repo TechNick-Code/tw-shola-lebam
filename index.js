@@ -51,20 +51,20 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// add to cart functionality
-document.addEventListener('DOMContentLoaded', () => {
-  const cartCount = document.getElementById('cart-count');
-  let count = 0;
+// // add to cart functionality
+// document.addEventListener('DOMContentLoaded', () => {
+//   const cartCount = document.getElementById('cart-count');
+//   let count = 0;
 
-  const addToCartButtons = document.querySelectorAll('.add-to-cart');
+//   const addToCartButtons = document.querySelectorAll('.add-to-cart');
 
-  addToCartButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      count += 1;
-      cartCount.textContent = count;
-    });
-  });
-});
+//   addToCartButtons.forEach(button => {
+//     button.addEventListener('click', () => {
+//       count += 1;
+//       cartCount.textContent = count;
+//     });
+//   });
+// });
 
 
 
@@ -118,3 +118,104 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+
+// add to cart functionality
+// This script manages the shopping cart functionality, including adding items, removing items, and displaying the
+ let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    function addToCart(name, price, qtyInputId, image) {
+      const quantity = parseInt(document.getElementById(qtyInputId).value);
+      if (quantity < 1) return;
+
+      const existingItem = cart.find(item => item.name === name);
+      if (existingItem) {
+        existingItem.quantity += quantity;
+      } else {
+        cart.push({ name, price, quantity, image });
+      }
+
+      saveCart();
+      updateCartCount();
+      updateCartDisplay();
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      saveCart();
+      updateCartCount();
+      updateCartDisplay();
+    }
+
+    function updateCartCount() {
+      const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+      document.getElementById('cart-count').textContent = totalItems;
+    }
+
+    function updateCartDisplay() {
+      const cartItems = document.getElementById('cart-items');
+      const cartTotal = document.getElementById('cart-total');
+      cartItems.innerHTML = '';
+      let total = 0;
+
+      cart.forEach((item, index) => {
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal;
+
+        const li = document.createElement('li');
+        li.className = 'flex items-center gap-4 bg-gray-100 p-2 rounded';
+        li.innerHTML = `
+          <img src="${item.image}" alt="${item.name}" class="size-[10em] object-cover rounded-lg" />
+          <div class="flex-1">
+            <div class="font-semibold text-lg">${item.name}</div>
+            <div class="text-sm text-gray-600">Qty: ${item.quantity}</div>
+          </div>
+          <div class="text-right">
+            <div>₦${itemTotal.toLocaleString()}</div>
+            <button onclick="removeFromCart(${index})" class="text-red-500 hover:underline text-sm">Remove</button>
+          </div>
+        `;
+        cartItems.appendChild(li);
+      });
+
+      cartTotal.textContent = total.toLocaleString();
+    }
+
+    function saveCart() {
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+
+    function goToCart() {
+      document.getElementById('cart-section').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function checkout() {
+      const totalAmount = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+      if (totalAmount === 0) {
+        alert("Your cart is empty!");
+        return;
+      }
+
+      let handler = PaystackPop.setup({
+        key: 'YOUR_PUBLIC_KEY_HERE', // Replace with your Paystack public key
+        email: 'customer@example.com', // Replace with customer's email
+        amount: totalAmount * 100,
+        currency: 'NGN',
+        ref: '' + Math.floor(Math.random() * 1000000000 + 1),
+        callback: function(response) {
+          alert('Payment successful! Reference: ' + response.reference);
+          cart = [];
+          saveCart();
+          updateCartCount();
+          updateCartDisplay();
+        },
+        onClose: function() {
+          alert('Transaction was not completed.');
+        }
+      });
+
+      handler.openIframe();
+    }
+
+    // Initialize cart on page load
+    updateCartCount();
+    updateCartDisplay();
