@@ -114,24 +114,26 @@
     
 
   <!-- Cart Section -->
-  <h2 class="text-xl font-bold mb-[2em] mt-[3em] mx-[4em]">YOUR SHOPPING CART</h2>
-<div class="inline-flex mx-[5em]">
-    <section id="cart-section" class="block p-6 bg-white w-full mx-auto rounded shadow">
-  
-      <div class="">
-          <ul id="cart-items" class="space-y-4"></ul>
-      </div>
-  
-  </section>
-  <div class=" bg-white h-40 p-5 rounded-lg shadow-lg ml-4">
-      <div class="mt-4 font-semibold text-lg">
-        Total: ₦<span id="cart-total">0</span>
-      </div>
-      <button onclick="checkout()" class="mt-4 bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
-        Checkout with Paystack
-      </button>
-  </div>
-</div>
+  <h2 class="text-xl font-bold m-[1em] lg:mb-[2em] lg:mt-[3em] lg:mx-[4em]">YOUR SHOPPING CART</h2>
+    <div class="block lg:flex lg:mx-[5em] w-full">
+        <section id="cart-section" class="block p-6 bg-white lg:w-2/3 rounded-lg shadow">
+            <div class="">
+                <ul id="cart-items" class="space-y-4"></ul>
+            </div>
+        </section>
+
+        <div class=" bg-white h-40 p-5 rounded-lg shadow-lg ml-4">
+            <div class="mt-4 font-semibold text-lg flex justify-between items-center">
+                Total: 
+                <div class="text-[1.5em]">
+                    ₦<span id="cart-total" class="">0</span>
+                </div>
+            </div>
+            <button onclick="checkout()" class="mt-4 bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+                Checkout with Paystack
+            </button>
+        </div>
+    </div>
 
 
 

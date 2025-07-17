@@ -162,16 +162,16 @@ document.addEventListener('DOMContentLoaded', () => {
         total += itemTotal;
 
         const li = document.createElement('li');
-        li.className = 'flex items-center gap-4 bg-gray-100 p-2 rounded';
+        li.className = 'flex items-center gap-4 bg-gray-50 p-2 rounded';
         li.innerHTML = `
           <img src="${item.image}" alt="${item.name}" class="size-[10em] object-cover rounded-lg" />
           <div class="flex-1">
-            <div class="font-semibold text-lg">${item.name}</div>
+            <div class="font-semibold">${item.name}</div>
             <div class="text-sm text-gray-600">Qty: ${item.quantity}</div>
           </div>
-          <div class="text-right">
+          <div class="text-right flex gap-3 items-center mr-7">
             <div>₦${itemTotal.toLocaleString()}</div>
-            <button onclick="removeFromCart(${index})" class="text-red-500 hover:underline text-sm">Remove</button>
+            <button onclick="removeFromCart(${index})" class="text-red-500 hover:underline text-sm"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class=w-5><path d="M7 4V2H17V4H22V6H20V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V6H2V4H7ZM6 6V20H18V6H6ZM9 9H11V17H9V9ZM13 9H15V17H13V9Z"></path></svg></button>
           </div>
         `;
         cartItems.appendChild(li);
