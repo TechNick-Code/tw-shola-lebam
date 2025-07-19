@@ -115,7 +115,7 @@
 
   <!-- Cart Section -->
   <h2 class="text-xl font-bold m-[1em] lg:mb-[2em] lg:mt-[3em] lg:mx-[4em]">YOUR SHOPPING CART</h2>
-    <div class="flex flex-col gap-4 md:flex lg:mx-[5em] w-full px-[1em]">
+    <div class="flex flex-col gap-4 md:flex lg:mx-[5em] w-full px-[1em] mb-20">
         <section id="cart-section" class="block p-3 bg-white lg:w-2/3 rounded-lg shadow">
             <div class="">
                 <ul id="cart-items" class="space-y-4"></ul>
@@ -129,11 +129,64 @@
                     ₦<span id="cart-total" class="">0</span>
                 </div>
             </div>
-            <button onclick="checkout()" class="w-full flex justify-center items-center mt-4 bg-black text-pry-color px-4 py-3 rounded-md active:scale-95 transition-all duration-300 ease-in-out">
-                Checkout with Paystack
+            <button onclick="checkout()" class="w-full flex justify-center items-center mt-4 bg-black text-pry-color font-bold px-4 py-3 rounded-md active:scale-95 transition-all duration-300 ease-in-out">
+                Proceed with Checkout
             </button>
         </div>
     </div>
+
+    <div class="absolute top-0 w-full bg-yellow-200 px-4 py-7 font-bold hidden" id="empty-alert"></div>
+
+<!-- footer section -->
+    <footer class="px-[1em] py-[2em] lg:px-[5em] bg-gray-50">
+       <a href="/" class="flex">
+            <h3 class="text-lg font-semibold text-black">SHOLA<span class="text-pry-color">LEBAM</span></h3>
+        </a>
+        <p class="text-text-color">Changing the perspective of how fashion is viewed
+            </p>
+
+        <div class="md:flex md:gap-10 md:mt-10 md:justify-between md:items-start">
+            <div class="info my-5 md:my-0">
+            <h4 class="font-bold">INFORMATION</h4>
+            <div class="flex flex-col items-start mt-1 gap-1 text-text-color">
+                <a href="about-us.html">About us</a>
+                <a href="collection.html">Collection</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact-us.html">Contact</a>
+                <a href="SHIPPING-INFO.HTML">Shipping & Delivery</a>
+                <a href="">FAQs</a>
+            </div>
+          </div>
+    
+          <div class="payment mb-5">
+            <h4 class="font-bold">PAYMENT</h4>
+            <div class="payment-list flex flex-col gap-1 mt-1 text-text-color">
+              <a href="https://www.visa.com.ng/">Visa</a>
+              <a href="https://mea.mastercard.com/en-region-mea.html">Master</a>
+              <a href="https://myverveworld.com/home">Verve</a>
+            </div>
+          </div>
+    
+          <div class="contacts gap-1 flex flex-col items-start">
+            <h4 class="font-bold mb-1">CONTACT</h4>
+            <div class="a">
+              <i class="fa fa-map-pin"></i>
+              <p>Along red-bricks market Dawaki, Gwarimpa, Abuja</p>
+            </div>
+            <div class="b">
+              <i class="fa fa-envelope"></i><a href="mailto:mabeltemitope.johnson@gmail.com">mabeltemitope.johnson@gmail.com</a>
+            </div>
+            <div class="c">
+              <i class="fa fa-phone"></i><a href="tel:+234-912-307-4279">+234 912 307 4279</a>
+            </div>
+          </div>
+        </div>
+        
+    
+          <div class="copyright text-center mt-5">
+            <h4>copyright @ 2025- sholalebam</h4>
+        
+    </footer>
 
 
 
