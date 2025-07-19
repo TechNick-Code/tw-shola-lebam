@@ -69,8 +69,8 @@
                 <ul class="text-white flex gap-8 text-sm">
                     <li><a href="home.html" class="">HOME</a></li>
                     <li><a href="collections.html" class="">COLLECTIONS</a></li>
-                    <li><a href="">BRIDALS</a></li>
-                    <li><a href="">GALLARY</a></li>
+                    <li><a href="bridals.html">BRIDALS</a></li>
+                    <li><a href="gallery.html">GALLARY</a></li>
                 </ul>
             </div>
             </div>
@@ -99,12 +99,12 @@
         </div>
 
         <!-- mobile section navition -->
-        <div class="mobile-section flex justify-left items-center bg-pry-color px-5 lg:hidden">
+        <div class="mobile-section flex justify-left items-center bg-pry-color lg:hidden">
             <ul class="text-text-color flex text-[13px] h-8 items-center">
-                <li><a href="home.html" class="font-semibold hover:bg-black py-2 px-4 hover:text-white">HOME</a></li>
-                <li><a href="collections.html" class="font-semibold bg-black py-2 px-4 text-white">COLLECTIONS</a></li>
-                <li><a href="" class="font-semibold hover:bg-black py-2 px-4 hover:text-white">BRIDALS</a></li>
-                <li><a href="" class="font-semibold hover:bg-black py-2 px-4 hover:text-white">GALLARY</a></li>
+                <li><a href="home.html" class="font-semibold hover:bg-black py-2 px-3 hover:text-white">HOME</a></li>
+                <li><a href="collections.html" class=" font-semibold hover:bg-black py-2 px-3 hover:text-white">COLLECTIONS</a></li>
+                <li><a href="bridals.html" class="font-semibold hover:bg-black py-2 px-3 hover:text-white">BRIDALS</a></li>
+                <li><a href="gallery.html" class="font-semibold hover:bg-black py-2 px-3 hover:text-white">GALLARY</a></li>
             </ul>
         </div>
     </header>
@@ -115,21 +115,21 @@
 
   <!-- Cart Section -->
   <h2 class="text-xl font-bold m-[1em] lg:mb-[2em] lg:mt-[3em] lg:mx-[4em]">YOUR SHOPPING CART</h2>
-    <div class="block lg:flex lg:mx-[5em] w-full">
-        <section id="cart-section" class="block p-6 bg-white lg:w-2/3 rounded-lg shadow">
+    <div class="flex flex-col gap-4 md:flex lg:mx-[5em] w-full px-[1em]">
+        <section id="cart-section" class="block p-3 bg-white lg:w-2/3 rounded-lg shadow">
             <div class="">
                 <ul id="cart-items" class="space-y-4"></ul>
             </div>
         </section>
 
-        <div class=" bg-white h-40 p-5 rounded-lg shadow-lg ml-4">
-            <div class="mt-4 font-semibold text-lg flex justify-between items-center">
+        <div class=" bg-white py-4 px-5 md:h-40 px-5 rounded-lg shadow-md lg:ml-4">
+            <div class="font-semibold text-lg flex justify-between items-center">
                 Total: 
                 <div class="text-[1.5em]">
                     ₦<span id="cart-total" class="">0</span>
                 </div>
             </div>
-            <button onclick="checkout()" class="mt-4 bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+            <button onclick="checkout()" class="w-full flex justify-center items-center mt-4 bg-black text-pry-color px-4 py-3 rounded-md active:scale-95 transition-all duration-300 ease-in-out">
                 Checkout with Paystack
             </button>
         </div>
