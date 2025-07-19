@@ -151,34 +151,59 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('cart-count').textContent = totalItems;
     }
 
-    function updateCartDisplay() {
-      const cartItems = document.getElementById('cart-items');
-      const cartTotal = document.getElementById('cart-total');
-      cartItems.innerHTML = '';
-      let total = 0;
+function updateCartDisplay() {
+  const cartItems = document.getElementById('cart-items');
+  const cartTotal = document.getElementById('cart-total');
+  cartItems.innerHTML = '';
+  let total = 0;
 
-      cart.forEach((item, index) => {
-        const itemTotal = item.price * item.quantity;
-        total += itemTotal;
+  cart.forEach((item, index) => {
+    const itemTotal = item.price * item.quantity;
+    total += itemTotal;
 
-        const li = document.createElement('li');
-        li.className = 'flex items-center gap-4 bg-gray-50 p-2 rounded';
-        li.innerHTML = `
-          <img src="${item.image}" alt="${item.name}" class="size-[10em] object-cover" />
-          <div class="flex-1">
-            <div class="font-semibold">${item.name}</div>
-            <div class="text-sm text-gray-600">Qty: ${item.quantity}</div>
-          </div>
-          <div class="text-right flex gap-3 items-center">
-            <div>₦${itemTotal.toLocaleString()}</div>
-            <button onclick="removeFromCart(${index})" class="text-red-500 hover:underline text-sm"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class=w-5><path d="M7 4V2H17V4H22V6H20V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V6H2V4H7ZM6 6V20H18V6H6ZM9 9H11V17H9V9ZM13 9H15V17H13V9Z"></path></svg></button>
-          </div>
-        `;
-        cartItems.appendChild(li);
-      });
+    const li = document.createElement('li');
+    li.className = 'flex flex-col md:flex-row gap-4 bg-gray-50 p-2 rounded';
+    li.innerHTML = `
+      <div class="flex gap-4 items-center">
+        <img src="${item.image}" alt="${item.name}" class="size-[7em] lg:size-[10em] object-cover" />
+        <div class="flex-1">
+          <div class="">${item.name}</div>
+          <div class="font-semibold mt-2">₦${itemTotal.toLocaleString()}</div>
+        </div>
+      </div>
 
-      cartTotal.textContent = total.toLocaleString();
-    }
+      <div class="text-right mt-3 flex gap-3 justify-between items-center">
+        <div class="flex items-center gap-4 text-sm text-gray-600">
+          Qty:
+          <button onclick="changeQuantity(${index}, -1)" class="px-3 py-1 bg-black rounded hover:bg-gray-300 text-lg text-pry-color font-bold">-</button>
+          <span class="font-semibold">${item.quantity}</span>
+          <button onclick="changeQuantity(${index}, 1)" class="px-3 py-1 bg-black rounded hover:bg-gray-300 text-lg text-pry-color font-bold">+</button>
+        </div>
+
+        <button onclick="removeFromCart(${index})" class="flex gap-1 text-red-500 hover:underline text-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5">
+            <path d="M7 4V2H17V4H22V6H20V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V6H2V4H7ZM6 6V20H18V6H6ZM9 9H11V17H9V9ZM13 9H15V17H13V9Z"></path>
+          </svg>
+          <p>Remove</p>
+        </button>
+      </div>
+    `;
+    cartItems.appendChild(li);
+  });
+
+  cartTotal.textContent = total.toLocaleString();
+}
+
+function changeQuantity(index, delta) {
+  if (!cart[index]) return;
+  cart[index].quantity += delta;
+  if (cart[index].quantity < 1) {
+    cart.splice(index, 1); // Remove item if quantity goes below 1
+  }
+  saveCart();
+  updateCartCount();
+  updateCartDisplay();
+}
 
     function saveCart() {
       localStorage.setItem('cart', JSON.stringify(cart));
@@ -190,10 +215,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function checkout() {
       const totalAmount = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+      const emptyAlert = document.getElementById('empty-alert');
       if (totalAmount === 0) {
-        alert("Your cart is empty!");
-        return;
-      }
+      emptyAlert.textContent = 'Please add items to your cart before checking out.';
+      emptyAlert.classList.remove('hidden');
+      setTimeout(() => {
+        emptyAlert.classList.add('hidden');
+      }, 4000);
+      return;
+}
+
 
       let handler = PaystackPop.setup({
         key: 'YOUR_PUBLIC_KEY_HERE', // Replace with your Paystack public key
