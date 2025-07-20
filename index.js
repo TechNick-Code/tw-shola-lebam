@@ -162,20 +162,20 @@ function updateCartDisplay() {
     total += itemTotal;
 
     const li = document.createElement('li');
-    li.className = 'flex flex-col md:flex-row gap-4 bg-gray-50 p-2 rounded';
+    li.className = 'flex flex-col md:flex-row gap-4 md:justify-between bg-gray-50 p-2 rounded';
     li.innerHTML = `
-      <div class="flex gap-4 items-center">
-        <img src="${item.image}" alt="${item.name}" class="size-[7em] lg:size-[10em] object-cover" />
-        <div class="flex-1">
-          <div class="">${item.name}</div>
-          <div class="font-semibold mt-2">₦${itemTotal.toLocaleString()}</div>
-        </div>
+      <div class="flex gap-6 items-center">
+          <img src="${item.image}" alt="${item.name}" class="size-[7em] md:size-[10em] object-cover" />
+          <div class="flex-1">
+            <div class="text-lg">${item.name}</div>
+            <div class="font-semibold mt-2 text-[1.4em]">₦${itemTotal.toLocaleString()}</div>
+          </div>
       </div>
 
-      <div class="text-right mt-3 flex gap-3 justify-between items-center">
+      <div class="text-right mt-3 flex gap-3 md:gap-6 justify-between items-center">
         <div class="flex items-center gap-4 text-sm text-gray-600">
           Qty:
-          <button onclick="changeQuantity(${index}, -1)" class="px-3 py-1 bg-black rounded hover:bg-gray-300 text-lg text-pry-color font-bold">-</button>
+          <button onclick="changeQuantity(${index}, -1)" class="px-[15px] py-1 bg-black rounded hover:bg-gray-300 text-lg text-pry-color font-bold">-</button>
           <span class="font-semibold">${item.quantity}</span>
           <button onclick="changeQuantity(${index}, 1)" class="px-3 py-1 bg-black rounded hover:bg-gray-300 text-lg text-pry-color font-bold">+</button>
         </div>
