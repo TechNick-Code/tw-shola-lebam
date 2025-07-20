@@ -30,57 +30,86 @@
                 }
             }
         }
-    </script>
+</script>
 
-    <html>
+<html>        
+<body>
+
+  <div class="bottom-header px-[1em] lg:px-[5em] py-5 md:py-7 bg-black flex justify-between items-center">
+            <div class="logo flex items-center gap-20">
+                <a href="home.html" class="flex">
+                    <h3 class="text-lg font-semibold text-white">SHOLA<span class="text-pry-color">LEBAM</span></h3>
+                </a>
+               
+            </div>
+
+            
+
+            <div class="add-to-cart flex gap-4">
+                
+                <a href="cart.html" class="relative inline-block ">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"  class="w-6 text-white">
+                        <path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM6.00436 7.00265V13.0027H17.5163L19.3163 7.00265H6.00436ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z">
+                        </path>
+                    </svg>
+                    <span id="cart-count" class="absolute -top-1 -right-2 bg-red-500 text-white text-[10px] px-[5px] rounded-full">
+                        
+                    </span>
+                </a>
+                <a href="cart.html" class="text-white -mx-3 hidden lg:block">Cart</a>
+            </div>
+        </div>
+
+      <section class="px-[1em] mt-[2em] lg:px-[5em] mb-[2em]">
+        <div id="step-cart" class= bg-white rounded shadow">
+          <h2 class="text-xl font-bold mb-4">🛒 Your Cart</h2>
+          <ul id="cart-items" class="space-y-2 mb-4"></ul>
+          <button onclick="goToDelivery()" class="bg-blue-600 text-white px-4 py-2 rounded">Continue</button>
+        </div>
+
+      <!-- Step 2: Login / Guest -->
+      <!-- <div id="step-login" class="hidden bg-white rounded shadow">
+        <h2 class="text-xl font-bold mb-4">👤 Login or Continue as Guest</h2>
+        <input type="email" id="user-email" placeholder="Email" class="w-full border px-4 py-2 rounded mb-2" />
+        <button onclick="goToDelivery()" class="bg-blue-600 text-white px-4 py-2 rounded">Next</button>
+      </div> -->
+
+      <!-- Step 3: Delivery Info -->
+      <div id="step-delivery" class="hidden bg-white rounded shadow">
+        <h2 class="text-xl font-bold mb-4">📦 Delivery Info</h2>
+        <input type="text" id="user-name" placeholder="Full Name" class="w-full border px-4 py-2 rounded mb-2" />
+        <input type="text" id="user-address" placeholder="Delivery Address" class="w-full border px-4 py-2 rounded mb-2" />
+        <input type="tel" id="user-phone" placeholder="Phone Number" class="w-full border px-4 py-2 rounded mb-4" />
+        <button onclick="goToPayment()" class="bg-green-600 text-white px-4 py-2 rounded">Proceed to Pay</button>
+      </div>
+
+      <!-- Step 4: Payment via Paystack -->
+      <div id="step-payment" class="hidden bg-white rounded shadow">
+        <h2 class="text-xl font-bold mb-4">💳 Checkout</h2>
+        <p class="mb-4">Total: ₦<span id="total-display">0</span></p>
+        <button onclick="checkoutWithPaystack()" class="bg-green-600 text-white px-4 py-2 rounded">Pay with Paystack</button>
+      </div>
+
+      <!-- Step 5: Confirmation -->
+      <div id="step-confirmation" class="hidden bg-white rounded shadow text-center">
+        <h2 class="text-2xl font-bold mb-4 text-green-600">✅ Payment Successful</h2>
+        <p>Your order has been placed. Reference: <span id="order-ref"></span></p>
+      </div>
+      </section>
         
-    <body>
 
-        <div id="step-cart" class="p-6 bg-white rounded shadow">
-  <h2 class="text-xl font-bold mb-4">🛒 Your Cart</h2>
-  <ul id="cart-items" class="space-y-2 mb-4"></ul>
-  <button onclick="goToLogin()" class="bg-blue-600 text-white px-4 py-2 rounded">Continue</button>
-</div>
+<script src="https://js.paystack.co/v1/inline.js"></script>
 
-<!-- Step 2: Login / Guest -->
-<div id="step-login" class="hidden p-6 bg-white rounded shadow">
-  <h2 class="text-xl font-bold mb-4">👤 Login or Continue as Guest</h2>
-  <input type="email" id="user-email" placeholder="Email" class="w-full border px-4 py-2 rounded mb-2" />
-  <button onclick="goToDelivery()" class="bg-blue-600 text-white px-4 py-2 rounded">Next</button>
-</div>
-
-<!-- Step 3: Delivery Info -->
-<div id="step-delivery" class="hidden p-6 bg-white rounded shadow">
-  <h2 class="text-xl font-bold mb-4">📦 Delivery Info</h2>
-  <input type="text" id="user-name" placeholder="Full Name" class="w-full border px-4 py-2 rounded mb-2" />
-  <input type="text" id="user-address" placeholder="Delivery Address" class="w-full border px-4 py-2 rounded mb-2" />
-  <input type="tel" id="user-phone" placeholder="Phone Number" class="w-full border px-4 py-2 rounded mb-4" />
-  <button onclick="goToPayment()" class="bg-green-600 text-white px-4 py-2 rounded">Proceed to Pay</button>
-</div>
-
-<!-- Step 4: Payment via Paystack -->
-<div id="step-payment" class="hidden p-6 bg-white rounded shadow">
-  <h2 class="text-xl font-bold mb-4">💳 Checkout</h2>
-  <p class="mb-4">Total: ₦<span id="total-display">0</span></p>
-  <button onclick="checkoutWithPaystack()" class="bg-green-600 text-white px-4 py-2 rounded">Pay with Paystack</button>
-</div>
-
-<!-- Step 5: Confirmation -->
-<div id="step-confirmation" class="hidden p-6 bg-white rounded shadow text-center">
-  <h2 class="text-2xl font-bold mb-4 text-green-600">✅ Payment Successful</h2>
-  <p>Your order has been placed. Reference: <span id="order-ref"></span></p>
-</div>
-
-<!-- <script src="https://js.paystack.co/v1/inline.js"></script> -->
+<script src="index.js"></script>
 <script>
-  const steps = ['cart', 'login', 'delivery', 'payment', 'confirmation'];
+  const steps = ['cart', 'delivery', 'payment', 'confirmation'];
   function showStep(name) {
     steps.forEach(step => {
       document.getElementById(`step-${step}`).classList.toggle('hidden', step !== name);
     });
   }
 
-  function goToLogin() { showStep('login'); }
+  // function goToLogin() { showStep('login'); }
   function goToDelivery() { showStep('delivery'); }
   function goToPayment() {
     document.getElementById('total-display').textContent = calculateTotal().toLocaleString();
