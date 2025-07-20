@@ -122,7 +122,6 @@ document.addEventListener('DOMContentLoaded', () => {
 // add to cart functionality
 // This script manages the shopping cart functionality, including adding items, removing items, and displaying the
  let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
     function addToCart(name, price, qtyInputId, image) {
       const quantity = parseInt(document.getElementById(qtyInputId).value);
       if (quantity < 1) return;
@@ -133,26 +132,52 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         cart.push({ name, price, quantity, image });
       }
-
       saveCart();
       updateCartCount();
       updateCartDisplay();
+      showAddToCartNotification();
+      updateAddToCartIcon();
     }
+
+    function showAddToCartNotification() {
+  const addedToCartMessage = document.getElementById('add-to-cart-noti');
+  if (addedToCartMessage) {
+    addedToCartMessage.classList.remove('hidden');
+    setTimeout(() => {
+      addedToCartMessage.classList.add('hidden');
+    }, 5000); // Hide after 5 seconds
+  }
+}
+
+function updateAddToCartIcon() {
+  const addedToCartIcon = document.getElementById('added-to-cart-icon');
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+  localStorage.setItem('cartCount', totalItems); // Save cart count
+
+  if (addedToCartIcon) {
+    addedToCartIcon.classList.toggle('hidden', totalItems === 0);
+    return;
+  }
+}
 
     function removeFromCart(index) {
       cart.splice(index, 1);
       saveCart();
       updateCartCount();
       updateCartDisplay();
+      updateAddToCartIcon();
     }
 
     function updateCartCount() {
       const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
       document.getElementById('cart-count').textContent = totalItems;
     }
+    updateCartCount();
+      updateAddToCartIcon();
 
 function updateCartDisplay() {
   const cartItems = document.getElementById('cart-items');
+  console.log(cartItems);
   const cartTotal = document.getElementById('cart-total');
   cartItems.innerHTML = '';
   let total = 0;
@@ -193,6 +218,9 @@ function updateCartDisplay() {
 
   cartTotal.textContent = total.toLocaleString();
 }
+updateCartDisplay();
+updateCartCount();
+
 
 function changeQuantity(index, delta) {
   if (!cart[index]) return;
@@ -224,29 +252,44 @@ function changeQuantity(index, delta) {
       }, 4000);
       return;
 }
+ localStorage.setItem('cart', JSON.stringify(cart));
+  localStorage.setItem('cartTotal', totalAmount);
+
+  // ✅ Redirect to payment page
+  window.location.href = 'payment.html';
+
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  cart = JSON.parse(localStorage.getItem('cart')) || [];
+  updateCartCount();
+  updateCartDisplay();
+  updateAddToCartIcon();
+});
 
 
-      let handler = PaystackPop.setup({
-        key: 'YOUR_PUBLIC_KEY_HERE', // Replace with your Paystack public key
-        email: 'customer@example.com', // Replace with customer's email
-        amount: totalAmount * 100,
-        currency: 'NGN',
-        ref: '' + Math.floor(Math.random() * 1000000000 + 1),
-        callback: function(response) {
-          alert('Payment successful! Reference: ' + response.reference);
-          cart = [];
-          saveCart();
-          updateCartCount();
-          updateCartDisplay();
-        },
-        onClose: function() {
-          alert('Transaction was not completed.');
-        }
-      });
 
-      handler.openIframe();
-    }
+    //   let handler = PaystackPop.setup({
+    //     key: 'YOUR_PUBLIC_KEY_HERE', // Replace with your Paystack public key
+    //     email: 'customer@example.com', // Replace with customer's email
+    //     amount: totalAmount * 100,
+    //     currency: 'NGN',
+    //     ref: '' + Math.floor(Math.random() * 1000000000 + 1),
+    //     callback: function(response) {
+    //       alert('Payment successful! Reference: ' + response.reference);
+    //       cart = [];
+    //       saveCart();
+    //       updateCartCount();
+    //       updateCartDisplay();
+    //     },
+    //     onClose: function() {
+    //       alert('Transaction was not completed.');
+    //     }
+    //   });
 
-    // Initialize cart on page load
-    updateCartCount();
-    updateCartDisplay();
+    //   handler.openIframe();
+    // }
+
+    // // Initialize cart on page load
+    // updateCartCount();
+    // updateCartDisplay();
