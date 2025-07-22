@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nigerian Recipes</title>
+  <title>Shola Lebam fashion store</title>
   <link href="/css/output.css" rel="stylesheet">
   <link rel="icon" href="favicon/sl.jpg">
   <script src="https://cdn.tailwindcss.com"></script>
@@ -32,7 +32,7 @@
         }
     </script>
 </head>
-<body class="bg-back-g text-text-c">
+<body class="bg-back-g text-text-color">
     <header class="sticky top-0 left-0 w-full z-50">
         <div class="top hidden md:flex w-full h-8 bg-gray-200 flex justify-center items-center gap-4">
             <div class="social-icons">
@@ -55,8 +55,8 @@
             </div>
 
             <div class="email-phone text-text-color flex gap-4 text-sm">
-                <a href="">u.johnson@gmail.com</a>
-                <a href="">+234 912 307 4279</a>
+                <a href="emailto:">u.johnson@gmail.com</a>
+                <a href="tel:+234 912 307 4279">+234 912 307 4279</a>
             </div>
         </div>
 
@@ -67,10 +67,10 @@
                 </a>
                 <div class="navigations hidden lg:flex">
                 <ul class="text-white flex gap-8 text-sm">
-                    <li><a href="home.html" class="">HOME</a></li>
-                    <li><a href="collections.html" class="">COLLECTIONS</a></li>
-                    <li><a href="bridals.html">BRIDALS</a></li>
-                    <li><a href="gallery.html">GALLARY</a></li>
+                    <li><a href="home.html" class="text-pry-color border-b-[2px] pb-1 -px-2 border-pry-color">HOME</a></li>
+                    <li><a href="collections.html" class="hover:text-pry-color hover:transition-all hover:duration-200">COLLECTIONS</a></li>
+                    <li><a href="bridals.html" class="hover:text-pry-color hover:transition-all hover:duration-200">BRIDALS</a></li>
+                    <li><a href="gallery.html" class="hover:text-pry-color hover:transition-all hover:duration-200">GALLARY</a></li>
                 </ul>
             </div>
             </div>
@@ -78,14 +78,14 @@
             
 
             <div class="add-to-cart flex gap-4">
-                <a href="" class="flex gap-2">
+                <a href="profile.html" class="flex gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"  class="w-6 text-white">
                         <path d="M11.9999 17C15.6623 17 18.8649 18.5751 20.607 20.9247L18.765 21.796C17.3473 20.1157 14.8473 19 11.9999 19C9.15248 19 6.65252 20.1157 5.23479 21.796L3.39355 20.9238C5.13576 18.5747 8.33796 17 11.9999 17ZM11.9999 2C14.7613 2 16.9999 4.23858 16.9999 7V10C16.9999 12.6888 14.8776 14.8818 12.2168 14.9954L11.9999 15C9.23847 15 6.9999 12.7614 6.9999 10V7C6.9999 4.31125 9.1222 2.11818 11.783 2.00462L11.9999 2ZM11.9999 4C10.4022 4 9.09623 5.24892 9.00499 6.82373L8.9999 7V10C8.9999 11.6569 10.343 13 11.9999 13C13.5976 13 14.9036 11.7511 14.9948 10.1763L14.9999 10V7C14.9999 5.34315 13.6567 4 11.9999 4Z">
                         </path>
                     </svg>
                     <p class="text-white hidden lg:block">USER PROFILE</p>
                 </a>
-                <div class="relative inline-block" onclick="goToCart()">
+                <a href="cart.html" class="relative inline-block ">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"  class="w-6 text-white">
                         <path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM6.00436 7.00265V13.0027H17.5163L19.3163 7.00265H6.00436ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z">
                         </path>
@@ -93,150 +93,23 @@
                     <span id="cart-count" class="absolute -top-1 -right-2 bg-red-500 text-white text-[10px] px-[5px] rounded-full">
                         
                     </span>
-                </div>
+                </a>
                 <a href="cart.html" class="text-white -mx-3 hidden lg:block">Cart</a>
             </div>
         </div>
 
-        <!-- mobile section navition -->
+        <!-- mobile section navigation -->
         <div class="mobile-section flex justify-left items-center bg-pry-color lg:hidden">
             <ul class="text-text-color flex text-[13px] h-8 items-center">
-                <li><a href="home.html" class="font-semibold hover:bg-black py-2 px-3 hover:text-white">HOME</a></li>
-                <li><a href="collections.html" class=" font-semibold hover:bg-black py-2 px-3 hover:text-white">COLLECTIONS</a></li>
+                <li><a href="home.html" class="font-semibold bg-black py-2 px-3 text-white">HOME</a></li>
+                <li><a href="collections.html" class="font-semibold hover:bg-black py-2 px-3 hover:text-white">COLLECTIONS</a></li>
                 <li><a href="bridals.html" class="font-semibold hover:bg-black py-2 px-3 hover:text-white">BRIDALS</a></li>
                 <li><a href="gallery.html" class="font-semibold hover:bg-black py-2 px-3 hover:text-white">GALLARY</a></li>
             </ul>
         </div>
     </header>
 
-
-
+<body>
     
-
-  <!-- Cart Section -->
-  <h2 class="text-xl font-bold m-[1em] lg:mb-[2em] lg:mt-[2em] lg:mx-[4em]">YOUR SHOPPING CART</h2>
-  <!-- empty cart -->
-  <div class="hiden" id="emptyCartSection">
-      <div class="flex flex-col items-center justify-center h-64">
-          <p id="cart-content" class="text-gray-500 text-lg">Your cart is empty</p>
-          <a href="collections.html" class="bg-pry-color text-gray-700 py-3 px-6 rounded-md mt-5 font-bold active:scale-95 transition-all">SHOP NOW</a>
-      </div>
-  </div>
-    <div class="flex flex-col gap-4 lg:flex-row md:flex lg:mx-[5em] mb-20">
-
-        <!-- added product display -->
-        <section id="cart-section" class="block p-2  lg:w-full rounded-lg shadow">
-            <div class="">
-                <ul id="cart-items" class="space-y-4"></ul>
-            </div>
-        </section>
-
-        <div class="lg:sticky lg:top-36 bg-white py-4 px-5 md:h-56 md:flex md:flex-col w-full md:gap-5 px-5 rounded-lg shadow-md lg:ml-4 lg:w-1/3">
-            <p>CART SUMMARY</p> <hr>
-            <div class="font-semibold text-lg flex justify-between items-center">
-                Total: 
-                <div class="text-[1.5em]">
-                    ₦<span id="cart-total" class="">0</span>
-                </div>
-            </div>
-            <button onclick="checkout()" class="w-full flex justify-center items-center bg-black text-pry-color font-bold px-14 py-3 rounded-md active:scale-95 transition-all duration-300 ease-in-out">
-                Proceed with Checkout
-            </button>
-        </div>
-    </div>
-
-    <div class="absolute top-0 w-full bg-yellow-200 px-4 py-7 font-bold text-center hidden z-50" id="empty-alert"></div>
-
-    <h2 class="px-[1em] lg:px-[5em]">PRODUCTS YOU LIKED</h2>
-<div class="liked-prduct px-[1em] lg:px-[5em] py-10 grid grid-cols-4">
-    <div class="card bg-gray-100 rounded-lg relative">
-                <img src="fashion-image/fur-cloth.png" alt="fur dress" class="w-full h-[25vh] object-cover">
-                
-                <!-- the price, label add to cart -->
-                <div class="text bg-white py-3 rounded-b-lg">
-                    <p class="text-sm">fur dress</p>
-                    <p class="font-semibold">$23.00</p>
-
-                    <div class="flex justify-between items-center mt-2">
-                        <button class="add-to-cart bg-black text-pry-color px-5 py-2 rounded active:scale-[0.9] transition-all duration-300" onclick="addToCart('fur dress', 15000, 'qty-dress1', 'fashion-image/fur-cloth.png')">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5 lg:hidden"><path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM6.00436 7.00265V13.0027H17.5163L19.3163 7.00265H6.00436ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z"></path></svg>
-                            <p class="hidden lg:block">Add to Cart</p>
-                        </button>
-                         <input type="number" id="qty-dress1" value="1" min="1" class="w-10 lg:w-12 border rounded px-2 py-1 active:border-gray-300"/>
-
-                         <button class="absolute top-2 left-3 like-button text-gray-800 hover:text-red-400 transition-all duration-200" aria-label="Like">
-                             
-                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                 d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0 116.364 6.364L12 21l-7.682-8.318a4.5 4.5 0 010-6.364z" />
-                                </svg>
-                            </button>
-                                <div id="added-to-cart-icon" class="absolute top-8 left-2 rounded-full flex items-center justify-center mt-2 hidden">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-8 lg:hidde  rounded-full p-[4px]"><path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM6.00436 7.00265V13.0027H17.5163L19.3163 7.00265H6.00436ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z"></path></svg>
-                                    <img src="fashion-image/checkk.svg" alt="" class="absolute size-5 -top-1 -right-[6px] rounded-full bg-gray-100 p-[1.5px]">
-                                </div>
-
-                        
-                    </div>
-                </div>
-            </div> 
-</div>
-
-
-<!-- footer section -->
-    <footer class="px-[1em] py-[2em] lg:px-[5em] bg-gray-50">
-       <a href="/" class="flex">
-            <h3 class="text-lg font-semibold text-black">SHOLA<span class="text-pry-color">LEBAM</span></h3>
-        </a>
-        <p class="text-text-color">Changing the perspective of how fashion is viewed
-            </p>
-
-        <div class="md:flex md:gap-10 md:mt-10 md:justify-between md:items-start">
-            <div class="info my-5 md:my-0">
-            <h4 class="font-bold">INFORMATION</h4>
-            <div class="flex flex-col items-start mt-1 gap-1 text-text-color">
-                <a href="about-us.html">About us</a>
-                <a href="collection.html">Collection</a>
-                <a href="gallery.html">Gallery</a>
-                <a href="contact-us.html">Contact</a>
-                <a href="SHIPPING-INFO.HTML">Shipping & Delivery</a>
-                <a href="">FAQs</a>
-            </div>
-          </div>
-    
-          <div class="payment mb-5">
-            <h4 class="font-bold">PAYMENT</h4>
-            <div class="payment-list flex flex-col gap-1 mt-1 text-text-color">
-              <a href="https://www.visa.com.ng/">Visa</a>
-              <a href="https://mea.mastercard.com/en-region-mea.html">Master</a>
-              <a href="https://myverveworld.com/home">Verve</a>
-            </div>
-          </div>
-    
-          <div class="contacts gap-1 flex flex-col items-start">
-            <h4 class="font-bold mb-1">CONTACT</h4>
-            <div class="a">
-              <i class="fa fa-map-pin"></i>
-              <p>Along red-bricks market Dawaki, Gwarimpa, Abuja</p>
-            </div>
-            <div class="b">
-              <i class="fa fa-envelope"></i><a href="mailto:mabeltemitope.johnson@gmail.com">mabeltemitope.johnson@gmail.com</a>
-            </div>
-            <div class="c">
-              <i class="fa fa-phone"></i><a href="tel:+234-912-307-4279">+234 912 307 4279</a>
-            </div>
-          </div>
-        </div>
-        
-    
-          <div class="copyright text-center mt-5">
-            <h4>copyright @ 2025- sholalebam</h4>
-        
-    </footer>
-
-
-
-     <script src="index.js"></script>
-
-    </body>
-    </html>
+</body>
+</body>

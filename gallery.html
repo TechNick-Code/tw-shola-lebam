@@ -110,8 +110,11 @@
     </header>
 
     <main class="px-[1em] lg:px-[5em] py-10">
-        <h2 class="text-2xl font-semibold text-center mb-8">GALLERY</h2>
-        <div id="gallery" class="gallery columns-2 md:columns-3 lg:columns-4 gap-4">
+      <div class="div flex gap-8 items-center mb-10 bg-red-700">
+        <h2 class="font-semibold text-center border-b-4 border-pry-color">GALLERY</h2>
+        <a href="liked-products.html" class="text- text-center">LIKED PRODUCT</a>
+      </div>
+        <div id="gallery" class="gallery columns-1 md:columns-2 lg:columns-4 :gap-4">
             <!-- <div class="gallery-item">
                 <img src="pictures/gallery1.jpg" alt="Gallery Image 1" class="w-full h-auto rounded-lg shadow-soft-shad">
             </div>
@@ -208,8 +211,8 @@
         </div>
 
         <div class="flex justify-center mt-6">
-      <button id="seeMoreBtn" onclick="showMore()" class="border-2 border-black text-black px-16 py-3 rounded flex items-center gap-2 hover:bg-black hover:text-white transition-colors duration-300 active:scale-95">
-        <span id="btnText">See More</span>
+      <button id="seeMoreBtn" onclick="showMore()" class="border-2 border-black text-black px-16 py-3 rounded flex items-center gap-2 transition-colors duration-300 active:scale-95">
+        <span id="btnText">Load More</span>
         <span id="btnSpinner" class="hidden px-4">
           <svg class="w-5 h-5 animate-spin text-black" fill="none" viewBox="0 0 24 24">
             <circle class="opacity-45" cx="13" cy="13" r="10" stroke="currentColor" stroke-width="34" />
@@ -220,7 +223,7 @@
     </div>
   
 </main>
-<!-- 🖼️ Modal Preview -->
+<!-- Modal Preview -->
   <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center hidden z-50">
       <img id="modalImg" src="" class="max-w-3xl max-h-screen rounded shadow-lg" />
       <button onclick="closeModal()" class="absolute top-4 right-6 text-white text-xl font-bold size-12">&times;</button>

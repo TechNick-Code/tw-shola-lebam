@@ -1,70 +1,37 @@
-// // like button
-
-// const strokeLove = document.querySelector('.strokeLove');
-// const filledLove = document.querySelector('.filledLove');
-// const container = document.querySelectorAll('.container');
-// const message = document.getElementById('message');
-// const message2 = document.getElementById('message2');
-
-// strokeLove.addEventListener('click', () => {
-//     filledLove.classList.toggle('opacity-100');
-//     strokeLove.classList.toggle('opacity-0');
-//     filledLove.classList.toggle('invisible');
-    
-// if(filledLove.classList.contains('opacity-100')) {
-//     message.textContent = "You liked this!";
-//     message.classList.remove("hidden");
-//     message2.classList.add("hidden");
-//     setTimeout(() => {
-//         message.classList.add("hidden");
-//     }, 3000);
-
-// }else{
-//     message2.textContent = "You unliked this!";
-//     message2.classList.remove("hidden");
-//     message.classList.add("hidden");
-//     setTimeout(() => {
-//         message2.classList.add("hidden");
-//     }, 3000);
-
-// }
-// });
-
 // like button functionality
+// This script manages the like button functionality,
+// allowing users to like/unlike items
 document.addEventListener('DOMContentLoaded', () => {
   const likeButtons = document.querySelectorAll('.like-button');
 
-  likeButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const svg = button.querySelector('svg');
+  likeButtons.forEach((button, index) => {
+    const svg = button.querySelector('svg');
+    const savedState = localStorage.getItem(`like-${index}`);
 
+    // Restore previous state if liked
+    if (savedState === 'true') {
+      button.classList.add('liked');
+      svg.setAttribute('fill', 'red');
+      button.classList.replace('text-gray-800', 'text-red-500');
+    }
+
+    // Listen for new clicks
+    button.addEventListener('click', () => {
       button.classList.toggle('liked');
-      if (button.classList.contains('liked')) {
+
+      const isLiked = button.classList.contains('liked');
+      localStorage.setItem(`like-${index}`, isLiked); // Save state
+
+      if (isLiked) {
         svg.setAttribute('fill', 'red');
         button.classList.replace('text-gray-800', 'text-red-500');
       } else {
         svg.setAttribute('fill', 'none');
-        button.classList.replace('text-red-500','text-gray-800');
+        button.classList.replace('text-red-500', 'text-gray-800');
       }
     });
   });
 });
-
-
-// // add to cart functionality
-// document.addEventListener('DOMContentLoaded', () => {
-//   const cartCount = document.getElementById('cart-count');
-//   let count = 0;
-
-//   const addToCartButtons = document.querySelectorAll('.add-to-cart');
-
-//   addToCartButtons.forEach(button => {
-//     button.addEventListener('click', () => {
-//       count += 1;
-//       cartCount.textContent = count;
-//     });
-//   });
-// });
 
 
 
@@ -228,18 +195,19 @@ function changeQuantity(index, delta) {
   if (cart[index].quantity < 1) {
     cart.splice(index, 1); // Remove item if quantity goes below 1
   }
+  
   saveCart();
   updateCartCount();
   updateCartDisplay();
 }
 
-    function saveCart() {
-      localStorage.setItem('cart', JSON.stringify(cart));
-    }
+function saveCart() {
+    localStorage.setItem('cart', JSON.stringify(cart));
+   }
 
-    function goToCart() {
-      document.getElementById('cart-section').scrollIntoView({ behavior: 'smooth' });
-    }
+function goToCart() {
+    document.getElementById('cart-section').scrollIntoView({ behavior: 'smooth' });
+   }
 
     function checkout() {
       const totalAmount = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -255,7 +223,7 @@ function changeQuantity(index, delta) {
  localStorage.setItem('cart', JSON.stringify(cart));
   localStorage.setItem('cartTotal', totalAmount);
 
-  // ✅ Redirect to payment page
+  // Redirect to payment page
   window.location.href = 'payment.html';
 
 }
@@ -267,6 +235,37 @@ document.addEventListener('DOMContentLoaded', () => {
   updateAddToCartIcon();
 });
 
+
+
+// empty cart displays your cart is empty
+
+    // function updateCartUI() {
+    //   const cartCount = document.getElementById("cart-count");
+    //   const cartContent = document.getElementById("cart-content");
+
+    //   // Update count
+    //   cartCount.textContent = cart.length;
+
+    //   // Update cart content
+    //   if (cart.length === 0) {
+    //     cartContent.textContent = "Your cart is empty.";
+    //   } else {
+    //     cartContent.innerHTML = cart.map(item => `<div class="mb-2">✅ ${item}</div>`).join("");
+    //   }
+    // }
+
+    // function goToCartCart() {
+    //   const emptyCartSection = document.getElementById("emptyCartSection");
+    //   emptyCartSection.classList.toggle("hidden");
+    // }
+
+    // function addToCart(item) {
+    //   cart.push(item);
+    //   updateCartUI();
+    // }
+
+    // // Initialize UI
+    // updateCartUI();
 
 
     //   let handler = PaystackPop.setup({
