@@ -109,9 +109,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function showAddToCartNotification() {
   const addedToCartMessage = document.getElementById('add-to-cart-noti');
   if (addedToCartMessage) {
-    addedToCartMessage.classList.remove('hidden');
+    addedToCartMessage.textContent = 'Your Item have been added to your cart!';
+    addedToCartMessage.classList.remove('-translate-x-[40em]');
     setTimeout(() => {
-      addedToCartMessage.classList.add('hidden');
+      addedToCartMessage.classList.add('-translate-x-[40em]');
     }, 5000); // Hide after 5 seconds
   }
 }
@@ -141,6 +142,7 @@ function updateAddToCartIcon() {
     }
     updateCartCount();
       updateAddToCartIcon();
+      
 
 function updateCartDisplay() {
   const cartItems = document.getElementById('cart-items');
@@ -214,10 +216,12 @@ function goToCart() {
       const emptyAlert = document.getElementById('empty-alert');
       if (totalAmount === 0) {
       emptyAlert.textContent = 'Please add items to your cart before checking out.';
-      emptyAlert.classList.remove('hidden');
+      emptyAlert.classList.remove('-translate-x-[42em]');
+      emptyAlert.classList.remove('-translate-y-[42em]');
       setTimeout(() => {
-        emptyAlert.classList.add('hidden');
-      }, 4000);
+        emptyAlert.classList.add('-translate-x-[42em]');
+        emptyAlert.classList.add('-translate-y-[42em]');
+      }, 6000);
       return;
 }
  localStorage.setItem('cart', JSON.stringify(cart));
@@ -233,6 +237,7 @@ document.addEventListener('DOMContentLoaded', () => {
   updateCartCount();
   updateCartDisplay();
   updateAddToCartIcon();
+  addToCart()
 });
 
 
