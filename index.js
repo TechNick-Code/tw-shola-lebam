@@ -109,6 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function showAddToCartNotification() {
   const addedToCartMessage = document.getElementById('add-to-cart-noti');
   if (addedToCartMessage) {
+    console.log("window")
     addedToCartMessage.textContent = 'Your Item have been added to your cart!';
     addedToCartMessage.classList.remove('-translate-x-[40em]');
     setTimeout(() => {
@@ -146,6 +147,18 @@ function updateAddToCartIcon() {
 
 function updateCartDisplay() {
   const cartItems = document.getElementById('cart-items');
+  if(!cartItems){
+    return;
+  }
+
+  const emptycart = document.getElementById("emptyCartSection");
+  if(cart.length){
+    emptycart.classList.add("hidden")
+  }else {
+    emptycart.classList.remove("hidden")
+  }
+
+
   console.log(cartItems);
   const cartTotal = document.getElementById('cart-total');
   cartItems.innerHTML = '';
