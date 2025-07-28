@@ -116,16 +116,19 @@
   <!-- Cart Section -->
   <h2 class="text-xl font-bold m-[1em] lg:mb-[2em] lg:mt-[2em] lg:mx-[4em]">YOUR SHOPPING CART</h2>
   <!-- empty cart -->
-  <div class="hiden" id="emptyCartSection">
-      <div class="flex flex-col items-center justify-center h-64">
-          <p id="cart-content" class="text-gray-500 text-lg">Your cart is empty</p>
-          <a href="collections.html" class="bg-pry-color text-gray-700 py-3 px-6 rounded-md mt-5 font-bold active:scale-95 transition-all">SHOP NOW</a>
-      </div>
-  </div>
+
     <div class="flex flex-col gap-4 lg:flex-row md:flex lg:mx-[5em] mb-20">
 
         <!-- added product display -->
         <section id="cart-section" class="block p-2  lg:w-full rounded-lg shadow">
+
+              <div class="hidden" id="emptyCartSection">
+                    <div class="flex flex-col items-center justify-center h-64">
+                        <p id="cart-content" class="text-gray-500 text-lg">Your cart is empty</p>
+                        <a href="collections.html" class="bg-pry-color text-gray-700 py-3 px-6 rounded-md mt-5 font-bold active:scale-95 transition-all">SHOP NOW</a>
+                    </div>
+                </div>
+
             <div class="">
                 <ul id="cart-items" class="space-y-4"></ul>
             </div>
@@ -144,6 +147,10 @@
             </button>
         </div>
     </div>
+
+    <!-- add to cart notification -->
+    <p id="add-to-cart-noti" class="add-to-cart-noti fixed bottom-5 bg-green-500 px-10 py-16 font-bold -translate-x-[40em] transition-translate duration-300 z-50 bg-opacity-[70%] rounded shadow"></p>
+
 
     <div class="fixed bottom-5 bg-pry-color px-10 py-16 font-bold -translate-x-[42em] transition-translate duration-300 z-50 bg-opacity-[70%] rounded shadow" id="empty-alert"></div>
 
