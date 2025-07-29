@@ -123,10 +123,9 @@ function updateAddToCartIcon() {
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
   localStorage.setItem('cartCount', totalItems); // Save cart count
 
-  if (addedToCartIcon) {
-    addedToCartIcon.classList.toggle('hidden', totalItems === 0);
-    return;
-  }
+ addedToCartIcon.forEach(icon => {
+    icon.classList.toggle('hidden', totalItems === 0);
+  });
 }
 
     function removeFromCart(index) {
