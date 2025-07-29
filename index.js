@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
 }
 
 function updateAddToCartIcon() {
-  const addedToCartIcon = document.getElementById('added-to-cart-icon');
+  const addedToCartIcon = document.querySelectorAll('.added-to-cart-icon');
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
   localStorage.setItem('cartCount', totalItems); // Save cart count
 
