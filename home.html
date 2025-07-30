@@ -113,9 +113,14 @@
 
     <!-- hero section -->
     <section>
-        <div class="hero relative h-[42vh] lg:h-[70vh] overflow-hidden flex items-start">
-                <img src="fashion-image/hero-img.JPG" alt="" class="absolute w-full object-cover h-full">
-            <div class= "z-10 absolute top-16 lg:top-[10em] left-5 lg:left-20 bg-gradient-to-r from-[rgb(255,255,255,0)] to-gray-100 md:bg-none p-8 rounded-lg">
+        <div class="hero relative h-[42vh] md:h-[55vh] lg:h-[70vh] overflow-hidden flex items-start">
+            <picture class="bg-red-400 w-full overflow-hidden">
+                <source media="(min-width: 650px)" srcset="fashion-image/hero-img.JPG">
+                <source media="(min-width: 465px)" srcset="fashion-image/hero-img.JPG">
+                <img src="fashion-image/hero-img.JPG" alt="hero image" class="absolute w-full object-cover h-full">
+            </picture>
+
+            <div class= "z-10 absolute top-16 md:top-32 lg:top-[10em] left-5 lg:left-20 bg-gradient-to-r from-[rgb(255,255,255,0)] to-gray-100 md:bg-none p-8 rounded-lg">
                  <div class="border-l-8 border-pry-color pl-4 ">
                     <h1 class="text-[1.3em] lg:text-[2em]">New Sales!</h1>
                     <p class="text-[2.5em] lg:text-[5em] font-bold">Bridals</p>
