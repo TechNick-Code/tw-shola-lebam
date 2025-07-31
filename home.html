@@ -90,7 +90,7 @@
                         <path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM6.00436 7.00265V13.0027H17.5163L19.3163 7.00265H6.00436ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z">
                         </path>
                     </svg>
-                    <span id="cart-count" class="absolute -top-1 -right-2 bg-pry-color text-black font-bold text-[10px] px-[5px] rounded-full">
+                    <span id="cart-count" class="absolute -top-1 -right-2 bg-red-400 text-black font-bold text-[10px] px-[5px] rounded-full">
                         
                     </span>
                 </a>
@@ -113,19 +113,42 @@
 
     <!-- hero section -->
     <section>
-        <div class="hero relative h-[42vh] md:h-[55vh] lg:h-[70vh] overflow-hidden flex items-start">
-            <picture class="bg-red-400 w-full overflow-hidden">
-                <source media="(min-width: 650px)" srcset="fashion-image/hero-img.JPG">
-                <source media="(min-width: 465px)" srcset="fashion-image/hero-img.JPG">
-                <img src="fashion-image/hero-img.JPG" alt="hero image" class="absolute w-full object-cover h-full">
-            </picture>
+        <div class="hero relative h-[100vh] lg:h-[87vh] lg:overflow-hidden bg-gradient-to-b from-black to-gray-600 items-start">
+            <!-- <picture class="w-full overflow-hiden h-full ">
+                <source media="(min-width: 650px)" srcset="fashion-image/material.jpg" class="blur-[3px]">
+                <source media="(min-width: 465px)" srcset="fashion-image/material.JPG" class="blur-[3px]">
+                 <img src="fashion-image/material.jpg" alt="hero image" class="absolut w-screen object-cover blur-[3px]">
+            </picture> -->
+            <div>
+                <div class= "flex flex-col lg:flex lg:flex-row lg:justify-between items-center z-10 w-[90%] left-6 md:left-12 lg:left-20 absolute top-10 md:top-12 lg:top-[7em] md:bg-none">
+                     <div class="text-center lg:text-left flex flex-col justify-center lg:justify-normal items-center lg:items-start">
+                        <h1 class="text-[2em] w-[10em] md:text-[3.5em] lg:text-[5em] font-bold text-white leading-[1]">
+                            FIND TRUE 
+                            <span class="text-pry-color drop-shadow-md">BEAUTY</span>
+                            IN YOUR STYLE
+                        </h1>
+                        <p class=" pt-7 text-sm lg:text-lg text-white w-[25em] lg:w-[30em]">
+                            They said beauty lies within the eyes, but i tell you beauty lies on the body when you dress in style
+                        </p>
+                        <button class="group relative flex flex-row items-center px-6 py-3 mt-7 bg-red-400 text-white font-semibold rounded-md transition">
+                            <span class="w-full bg-red-400 z-10">Shop Now</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 -translate-x-16 opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition duration-300 ease-in-out">
+                                <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="bg-red-500 mt-14 lg:mr-10">
+                        <div class="div bg-red-400 w-full h-full rotate-[8deg]">
+                            
+                        </div>
+                        <div class="pics bg-yellow-400 flex justify-center w-[49vmin] p-5 rotate-[8deg]">
+                            <img src="fashion-image/a.png" alt="" class="w-[10em] lg:w-[14em] z-50">
+                        </div>
+                    </div>
 
-            <div class= "z-10 absolute top-16 md:top-32 lg:top-[10em] left-5 lg:left-20 bg-gradient-to-r from-[rgb(255,255,255,0)] to-gray-100 md:bg-none p-8 rounded-lg">
-                 <div class="border-l-8 border-pry-color pl-4 ">
-                    <h1 class="text-[1.3em] lg:text-[2em]">New Sales!</h1>
-                    <p class="text-[2.5em] lg:text-[5em] font-bold">Bridals</p>
                 </div>
-                    <p class=" pt-2 text-sm lg:text-lg">Stop and stare dresses are available <br> for purchase </p>
+                
             </div>
            
             <!-- <img src="fashion-image/a.png" alt="" class="h-[50vh] lg:h-[80vh] place-self-end absolute right-0 top-10 lg:right-5"> -->
