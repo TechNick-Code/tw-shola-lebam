@@ -128,6 +128,14 @@ function updateAddToCartIcon() {
   });
 }
 
+const totalItems = document.getElementById("cart-count");
+        if(totalItems > totalItems){
+          console.log(totalItems)
+            totalItems.classList.add("animate-bounce");
+        }else {
+            totalItems.classList.remove("animate-bounce");
+        };
+
     function removeFromCart(index) {
       cart.splice(index, 1);
       saveCart();
