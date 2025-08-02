@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
       updateAddToCartIcon();
     }
 
-    function showAddToCartNotification() {
+function showAddToCartNotification() {
   const addedToCartMessage = document.getElementById('add-to-cart-noti');
   if (addedToCartMessage) {
     console.log("window")
@@ -129,11 +129,10 @@ function updateAddToCartIcon() {
 }
 
 const totalItems = document.getElementById("cart-count");
-        if(totalItems > totalItems){
-          console.log(totalItems)
-            totalItems.classList.add("animate-bounce");
+        if(totalItems >= 0){
+            totalItems.classList.remove("animate-spin");
         }else {
-            totalItems.classList.remove("animate-bounce");
+            totalItems.classList.add("animate-bounce");
         };
 
     function removeFromCart(index) {
