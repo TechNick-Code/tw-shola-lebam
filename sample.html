@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shola Lebam fashion store</title>
+  <link href="/css/output.css" rel="stylesheet">
+  <link rel="icon" href="favicon/sl.jpg">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+ <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                  icons: {
+                    'icon': 'fill-gray-600 hover:fill-gray-700 w-5',
+                  },
+                  backgroundImage: {
+                    'img': "url('../workspace/project/pictures/ape.jpg')",
+                  },
+                  boxShadow: {
+                    'soft-shad': '0 2px 20px -10px rgba(0, 0, 0, 0.3)',
+                    'top-shadow': '0 -1px 13px -10px rgba(0, 0, 0, 0.3)'
+                  },
+                    colors: {
+                        'pry-color': 'rgb(255, 230, 0)',
+                        'sec-color': 'rgb(242, 247, 248)',
+                        'text-color': 'rgb(39, 39, 39)',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-back-g text-text-color">
+    <div class="full-section flex flex-col lg:flex-row lg:px-[5em] lg:py-10 gap-5">
+        <section>
+            <div class="main-image flex justify-between w-[100vmin]">
+    
+                <div class="w-[75%] lg:w-[86%] h-[25em] lg:h-[70vh] overflow-hidden flex justify-center items-center bg-gray-100 object-cover">
+                    <img src="fashion-image/a.png" alt="" class="object-contain w-1/2">
+                </div>
+    
+                <div class="flex flex-col gap-1">
+                    <div class="bg-gray-100 h-[6em] overflow-hidden border border-gray-400">
+                        <img src="fashion-image/a.png" alt="" class="w-20">
+                    </div>
+                    <div class="bg-gray-100 h-[6em] overflow-hidden border border-gray-400">
+                        <img src="fashion-image/a.png" alt="" class="w-20">
+                    </div>
+                    <div class="bg-gray-100 h-[6em] overflow-hidden border border-gray-400">
+                        <img src="fashion-image/a.png" alt="" class="w-20">
+                    </div>
+                    <div class="bg-gray-100 h-[6em] overflow-hidden border border-gray-400">
+                        <img src="fashion-image/a.png" alt="" class="w-20">
+                    </div>
+                </div>
+        
+            </div>
+            </section>
+    
+            <div class="details-section flex flex-col w-full">
+                <section class="px-[1em] my-3 py-4 ">
+                    <div class="product-name">
+                        <p class="font-semibold">Pink Slim Beautiful classic Dress</p>
+                        <p class="font-bold text-lg">#15,000</p>
+                        <p class="text-xs text-gray-500 mb-2">Available</p>
+                    </div>
+        
+                    <div class="mt-3">
+                        <p class="">Size</p>
+                        <div class="mt-2 flex gap-2">
+                            <button class="px-2 py-1 rounded border border-gray-400 text-sm active:bg-pry-color active:text-gray-700 active:border-0 active:font-semibold">size-1</button>
+                            <button class="px-2 py-1 rounded border border-gray-400 text-sm active:bg-pry-color active:text-gray-700 active:border-0 active:font-semibold">size-2</button>
+                            <button class="px-2 py-1 rounded border border-gray-400 text-sm active:bg-pry-color active:text-gray-700 active:border-0 active:font-semibold">size-3</button>
+                            <button class="px-2 py-1 rounded border border-gray-400 text-sm active:bg-pry-color active:text-gray-700 active:border-0 active:font-semibold">size-4</button>
+                            <button class="px-2 py-1 rounded border border-gray-400 text-sm active:bg-pry-color active:text-gray-700 active:border-0 active:font-semibold">size-4</button>
+                            <button class="px-2 py-1 rounded border border-gray-400 text-sm active:bg-pry-color active:text-gray-700 active:border-0 active:font-semibold">size-4</button>
+                            <button class="px-2 py-1 rounded border border-gray-400 text-sm active:bg-pry-color active:text-gray-700 active:border-0 active:font-semibold">size-4</button>
+                        </div>
+                    </div>
+                </section>
+        
+                <section class="px-[1em] mt-">
+                    <p class="font-semibold">Materials</p>
+                    <p class="text-gray-500">Estay, silk, velvet gold stone</p> 
+        
+                    <div class="flex items-center gap-4 text-sm text-gray-600 mt-5">
+                        Quantity:
+                        <button onclick="changeQuantity(${index}, -1)" class="px-[15px] py-1 bg-black rounded hover:bg-gray-300 text-lg text-pry-color font-bold">-</button>
+                        <span class="font-semibold"></span>
+                        <button onclick="changeQuantity(${index}, 1)" class="px-3 py-1 bg-black rounded hover:bg-gray-300 text-lg text-pry-color font-bold">+</button>
+                    </div><hr class="mt-4">
+        
+                <section class="flex flex-col mb-20 lg:mb-10 mt-4 gap-1">
+                    <div class="">
+                        <input type="radio" name="Use Current Location">
+                        <label for="">Use current location</label>
+                    </div>
+                    <div class="">
+                        <input type="radio" name="Use Current Location">
+                        <label for="">Change location</label>
+                    </div>
+                </section>  
+                
+                <div class="fixed lg:relative bottom-0 p-1">
+                    <button id="add-to-cart" class="add-to-cart bg-black text-pry-color flex gap-3 w-full justify-center px-5 py-4 rounded active:scale-[0.9] transition-all duration-300" onclick="addToCart('fur dress', 15000, 'qty-dress1', 'fashion-image/fur-cloth.png')">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5 lg:hidden"><path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM6.00436 7.00265V13.0027H17.5163L19.3163 7.00265H6.00436ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z"></path></svg>
+                        <p class="font-semibold">Buy Product</p>
+                    </button>
+                </div>
+            </div>
+    </div>
+</body>
+</html>

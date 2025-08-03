@@ -11,7 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
       images: [
         'fashion-image/fur-cloth.png',
         'fashion-image/fur-cloth.png',
-        'fashion-image/fur-cloth.png'
+        'fashion-image/fur-cloth.png',
+        'fashion-image/a.png'
       ],
       sizes: ['S', 'M', 'L', 'XL']
     },
@@ -53,42 +54,61 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Render product details
   productContainer.innerHTML = `
-    <div class="flex flex-col lg:flex-row gap-6 w-full bg-red-500">
+    <div class="flex flex-col lg:flex-row gap-6 w-full overflow-hidden">
         <div class="flex gap-3">
-            <div class="w-[50vw] items-center flex justify-center bg-gray-100">
-                <img id="main-image" src="${product.images[0]}" class="object-cover mb-4" />
+            <div class="w-[71vw] lg:w-[50vw] lg:h-[75vh] items-center flex justify-center bg-gray-100">
+                <img id="main-image" src="${product.images[0]}" class="w-[60vw] lg:w-[25vw] object-cover mb-4" />
             </div>
             <div class="flex flex-col gap-2">
                 ${product.images.map(img => `
-                <img src="${img}" class="w-20 h-20 object-contain rounded cursor-pointer border hover:border-black"
+                <img src="${img}" class="w-24 h-24 bg-gray-100 object-contain rounded cursor-pointer border hover:border-black"
                     onclick="document.getElementById('main-image').src='${img}'">
                 `).join('')}
             </div>
         </div>
 
-      <div class="bg-blue-400 w-full">
-        <h2 class="text-2xl font-bold mb-2">${product.name}</h2>
-        <p class="text-gray-700 mb-4">₦${product.price}</p>
+      <div class="w-full lg:ml-4">
+        <h2 class=" font-semibold">${product.name}</h2>
+        <p class="font-bold text-[1.2em]">₦${product.price}</p>
+        <p class="text-xs text-gray-500 mb-2">Available</p>
 
         <div class="mb-4">
-          <label class="block mb-1 font-semibold">Size:</label>
+          <label class="block mb-1 font-semibold">Measurement</label>
           <div class="flex space-x-2">
             ${product.sizes.map(size => `
               <button onclick="selectSize('${size}', this)"
-                      class="size-btn px-3 py-1 border rounded ${size === selectedSize ? 'bg-black text-white' : 'bg-white'}">
+                      class="px-4 py-1 rounded border border-gray-400 text-sm active:bg-pry-color active:text-gray-700 active:border-0 active:font-semibold ${size === selectedSize ? 'bg-black text-pry-color' : 'bg-white text-black'}">
                 ${size}
               </button>
+              
+              <label></label>
             `).join('')}
           </div>
         </div>
 
-        <div class="flex items-center space-x-4 mb-4">
-          <button onclick="changeQty(-1)" class="px-3 py-1 bg-gray-300 rounded">−</button>
-          <span id="qty-display" class="text-lg font-semibold">${quantity}</span>
-          <button onclick="changeQty(1)" class="px-3 py-1 bg-gray-300 rounded">+</button>
+        <div class="mb-5">
+        <h1>Materials</h1>
+        <p class="text-gray-500">Silk, Velvet, gold stoning, wool, lilac</p>
         </div>
 
-        <button onclick="addToCart()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Add to Cart</button>
+        <div class="flex items-center space-x-2 mb-5">
+          <button onclick="changeQty(-1)" class="px-3 py-1 bg-black text-pry-color rounded">−</button>
+          <span id="qty-display" class="text-lg font-semibold border border-black px-4">${quantity}</span>
+          <button onclick="changeQty(1)" class="px-3 py-1 bg-black text-pry-color rounded">+</button>
+        </div><hr class="border-gray-300">
+
+        <div class="flex flex-col my-5 gap-1">
+            <div class="">
+                <input type="radio" name="Use Current Location">
+                <label for="">Use current location</label>
+            </div>
+            <div class="">
+                <input type="radio" name="Use Current Location">
+                <label for="">Change location</label>
+            </div>
+        </div>
+
+        <button onclick="addToCart()" class="w-full border border-black text-black px-4 py-3 rounded hover:bg-black hover:text-pry-color hover:font-bold active:scale-95 transition-all duration-300">Buy Product</button>
       </div>
     </div>
   `;
