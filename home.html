@@ -120,8 +120,8 @@
                  <img src="fashion-image/material.jpg" alt="hero image" class="absolut w-screen object-cover blur-[3px]">
             </picture> -->
             <div>
-                <img src="fashion-image/line.svg" alt="" class="absolute right-0 -top-3">
-                <img src="fashion-image/line2.svg" alt="" class="absolute -bottom-2 -left-3">
+                <img src="fashion-image/line.svg" alt="" class="absolute right-0 -top-3 animate-ping">
+                <img src="fashion-image/line2.svg" alt="" class="absolute -bottom-2 -left-3 animate-ping">
                 <div class= "flex flex-col lg:flex lg:flex-row lg:justify-between items-center z-10 w-[90%] left-6 md:left-12 lg:left-20 absolute top-10 md:top-12 lg:top-[7em] md:bg-none">
                      <div class="text-center lg:text-left flex flex-col justify-center lg:justify-normal items-center lg:items-start">
                         <h1 class="text-[2em] w-[10em] md:text-[3.5em] lg:text-[5em] font-bold text-white leading-[1]">
@@ -163,8 +163,9 @@
 
         <div class="container grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-8 w-full p-[1em] flex-wrap mt-2 lg:px-[5em]">
             <div class="card bg-gray-100 rounded-lg relative overflow-hidden">
-                <img src="fashion-image/fur-cloth.png" alt="fur dress" class="w-full h-[25vh] object-cover hover:scale-[1.04] transition-all duration-300 cursor-pointer" onclick="window.location.href='product-display.html'">
-                
+                <a href="product-display.html?id=fur-dress">
+                    <img src="fashion-image/fur-cloth.png" alt="fur dress" id="fur-dress" class="w-full h-[25vh] object-cover hover:scale-[1.04] transition-all duration-300 cursor-pointer">
+                </a>
                 <!-- the price, label add to cart -->
                 <div class="text bg-white py-3 rounded-b-lg">
                     <p class="text-sm">fur dress</p>
@@ -184,7 +185,8 @@
                                  d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0 116.364 6.364L12 21l-7.682-8.318a4.5 4.5 0 010-6.364z" />
                                 </svg>
                             </button>
-                                <div id="added-to-cart-icon" class="added-to-cart-icon absolute top-8 left-2 rounded-full flex items-center justify-center mt-2 hidden">
+                            <!-- add to cart icon -->
+                                <div id="added-to-cart-icon" class="added-to-cart-icon absolute top-8 left-2 rounded-full flex items-center justify-center mt-2 hidden animate-">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-8  rounded-full p-[4px]"><path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM6.00436 7.00265V13.0027H17.5163L19.3163 7.00265H6.00436ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z"></path></svg>
                                     <img src="fashion-image/checkk.svg" alt="" class="absolute size-5 -top-1 -right-[6px] rounded-full bg-gray-100 p-[1.5px]">
                                 </div>
@@ -424,6 +426,11 @@
         </div>
     </section>
 
+    <!-- product- modal page -->
+    <div id="cart-section" class="mt-10 max-w-md mx-auto bg-white p-4 rounded shadow">
+        <h2 class="text-xl font-bold mb-4">🛒 Cart</h2>
+    </div>
+
 
     <footer class="px-[1em] py-[2em] lg:px-[5em] bg-gray-50">
        <a href="/" class="flex">
@@ -476,9 +483,10 @@
     </footer>
 
     <script src="index.js"></script>
+    <script src="product.js"></script>
 
     <script>
-        
-    </script>
+  
+</script>
 </body>
 </html>
