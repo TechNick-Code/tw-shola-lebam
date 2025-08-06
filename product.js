@@ -54,25 +54,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Render product details
   productContainer.innerHTML = `
-    <div class="flex flex-col lg:flex-row gap-6 w-full overflow-hidden">
-        <div class="flex gap-3">
-            <div class="w-[71vw] lg:w-[50vw] lg:h-[75vh] items-center flex justify-center bg-gray-100">
+    <div class="flex flex-col lg:flex-row gap-4 w-full overflow-hidden">
+        <div class="flex gap-3 overflow-hidden">
+            <div class="w-[71vw] lg:w-[80vw] lg:h-[75vh] items-center flex justify-center bg-gray-100">
                 <img id="main-image" src="${product.images[0]}" class="w-[60vw] lg:w-[25vw] object-cover mb-4" />
             </div>
             <div class="flex flex-col gap-2">
                 ${product.images.map(img => `
-                <img src="${img}" class="w-24 h-24 bg-gray-100 object-contain rounded cursor-pointer border hover:border-black"
+                <img src="${img}" class="w-24 h-24 lg:w-32 bg-gray-100 object-contain rounded cursor-pointer border hover:border-black"
                     onclick="document.getElementById('main-image').src='${img}'">
                 `).join('')}
             </div>
         </div>
 
-      <div class="w-full lg:ml-4">
+      <div class="w-full lg:w-[40vw] lg:ml-4">
         <h2 class=" font-semibold">${product.name}</h2>
         <p class="font-bold text-[1.2em]">₦${product.price}</p>
         <p class="text-xs text-gray-500 mb-2">Available</p>
 
-        <div class="mb-4">
+        <div class="mb-6 flex flex-col gap-2">
           <label class="block mb-1 font-semibold">Measurement</label>
           <div class="flex space-x-2">
             ${product.sizes.map(size => `
@@ -86,9 +86,9 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
         </div>
 
-        <div class="mb-5">
-        <h1>Materials</h1>
-        <p class="text-gray-500">Silk, Velvet, gold stoning, wool, lilac</p>
+        <div class="mb-7 flex flex-col gap-1">
+            <h1 class="font-semibold">Materials</h1>
+            <p class="text-gray-500 text-sm">Silk, Velvet, gold stoning, wool, lilac</p>
         </div>
 
         <div class="flex items-center space-x-2 mb-5">
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
         </div>
 
-        <button onclick="addToCart()" class="w-full border border-black text-black px-4 py-3 rounded hover:bg-black hover:text-pry-color hover:font-bold active:scale-95 transition-all duration-300">Buy Product</button>
+        <button onclick="addToCart('${products}')" class="w-full lg:w-1/3 border border-black text-black px-4 py-3 rounded hover:bg-black hover:text-pry-color hover:font-bold active:scale-95 transition-all duration-300">Buy Product</button>
       </div>
     </div>
   `;
